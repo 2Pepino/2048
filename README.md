@@ -1,2 +1,2 @@
 # 2048
-A fun game.
+A fun game created using Cursor AI.
