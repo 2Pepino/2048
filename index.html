@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2048</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <div class="leftcol">
+        <header class="brand">
+          <div class="logo">2048</div>
+          <div class="hint">Use arrow keys or the buttons below.</div>
+        </header>
+
+        <aside class="rules" aria-label="Rules">
+          <button class="pill pill-toggle" id="rulesToggle" type="button" aria-expanded="false">
+            <div class="pill-label">Rules <span class="chev" aria-hidden="true">▾</span></div>
+          </button>
+
+          <div class="rules-panel" id="rulesPanel" hidden>
+            <div class="rules-body">
+              <ul class="rules-list">
+                <li>Use <strong>↑ → ↓ ←</strong> to slide all tiles.</li>
+                <li>If two equal tiles collide, they merge into their sum.</li>
+                <li>Each tile can merge once per move.</li>
+                <li>After every valid move, a new <strong>2</strong> (usually) or <strong>4</strong> (sometimes) spawns.</li>
+                <li>Reach <strong>2048</strong> to win. If you have no moves left, you lose.</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="game" aria-label="2048 game">
+        <div class="playcol">
+          <div class="scorebox scorebox-top" aria-label="Scoreboard">
+            <div class="pill">
+              <div class="pill-label">Score</div>
+              <div class="pill-value" id="score">0</div>
+            </div>
+            <div class="pill">
+              <div class="pill-label">Best</div>
+              <div class="pill-value" id="best">0</div>
+            </div>
+            <button class="btn" id="newGameBtn" type="button">New game</button>
+          </div>
+
+          <div class="board" id="board" role="application" aria-label="2048 board">
+            <div class="cells" aria-hidden="true">
+              <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+              <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+              <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+              <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+            </div>
+
+            <div class="tiles" id="tiles" aria-hidden="true"></div>
+
+            <div class="overlay" id="overlay" hidden>
+              <div class="overlay-card" role="status" aria-live="polite">
+                <div class="overlay-title" id="overlayTitle">You win!</div>
+                <div class="overlay-sub" id="overlaySub">Keep going or start a new game.</div>
+                <div class="overlay-actions">
+                  <button class="btn" id="keepGoingBtn" type="button">Keep going</button>
+                  <button class="btn btn-primary" id="restartBtn" type="button">Restart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls" aria-label="Move controls">
+            <button class="dpad dpad-up" id="btnUp" type="button" aria-label="Move up">↑</button>
+            <button class="dpad dpad-left" id="btnLeft" type="button" aria-label="Move left">←</button>
+            <button class="dpad dpad-down" id="btnDown" type="button" aria-label="Move down">↓</button>
+            <button class="dpad dpad-right" id="btnRight" type="button" aria-label="Move right">→</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-text">
+          Combine tiles to reach <strong>2048</strong>. - Copyright &#169; 2026
+        </div>
+      </footer>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
